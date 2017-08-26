@@ -14,6 +14,8 @@ import {
 
 export default class ShouYe extends Component {
     render() {
+        const  type  = this.props.loginReducer ? this.props.loginReducer.type : null;
+        console.log(type)
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>

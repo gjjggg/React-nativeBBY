@@ -10,6 +10,7 @@ import {
     Image,
     TextInput,
     TouchableOpacity,
+
 } from 'react-native';
 
 import Prexfig from '../../Tool/Prexfig'
@@ -18,6 +19,7 @@ import NetWorking from  '../../Tool/NetWorking'
 import Mccvcvv from 'react-native-md5'
 import {loginAction} from '../../Redux/Actions/LoginAction'
 import  { connect } from 'react-redux'
+import AppRoot from '../../Base/APPRoot'
 
 
 const backImage = require('../../Image/Login/注册-.png')
@@ -36,44 +38,10 @@ const mima = require('../../Image/Login/锁.png')
         };
       }
 
-     componentDidMount() {
 
-     }
     _renderLoginPress=()=>{
 
         this.props.loginAction('1866','202CB962AC59075B964B07152D234B70');
-        const  type  = this.props.loginReducer ? this.props.loginReducer.type : null;
-        console.log(type)
-        // var index = Math.floor((Math.random()*Config.api.baseLoginRootUrl.length))
-        // var baseLoginRootUr =  Config.api.baseLoginRootUrl[index]
-        // let userz_hex_md5v = Mccvcvv.hex_md5( Date.now() +"1866" );
-        // let ma_hex_md5v = Mccvcvv.hex_md5( Date.now() +'123' );
-        // let hex_md5v = Mccvcvv.hex_md5( Date.now() +'123' );
-        // console.log(">>>>hex_md5:", hex_md5v);
-        //
-        // let b64_md5v = Mccvcvv.b64_md5( Date.now() +'123' );
-        // console.log(">>>>b64_md5:", b64_md5v);
-        //
-        // let str_md5v = Mccvcvv.str_md5( Date.now() +'123' );
-        // console.log(">>>>str_md5:", str_md5v);
-        //
-        // let hex_hmac_md5v = Mccvcvv.hex_hmac_md5("my_key", Date.now() +'123' );
-        // console.log(">>>>hex_hmac_md5:", hex_hmac_md5v);
-        //
-        // let b64_hmac_md5v = Mccvcvv.b64_hmac_md5("my_key", Date.now() +'123' );
-        // console.log(">>>>b64_hmac_md5:", b64_hmac_md5v);
-        //
-        // let str_hmac_md5v = Mccvcvv.str_hmac_md5("my_key", Date.now() +'123' );
-        // console.log(">>>>str_hmac_md5:", str_hmac_md5v);
-        //
-        // let url = `${baseLoginRootUr}username=1866&pwd=202CB962AC59075B964B07152D234B70`
-        // console.log(url)
-        // NetWorking.get(url,(data)=>{
-        //
-        //
-        // },(error)=>{
-        //
-        // });
 
     }
     render() {
@@ -96,7 +64,7 @@ const mima = require('../../Image/Login/锁.png')
                   <TextInput style={styles.userNameText}/>
 
               </View>
-              <TouchableOpacity style={styles.loginBtn} onPress={this._renderLoginPress()}>
+              <TouchableOpacity style={styles.loginBtn} onPress={this._renderLoginPress}>
                <Text style={{color:'#ffffff'}}>
                   登录
                </Text>

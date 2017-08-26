@@ -6,6 +6,7 @@ import Config from '../../Tool/Config'
 import NetWorking from  '../../Tool/NetWorking'
 import {
     AsyncStorage,
+    DeviceEventEmitter
 } from 'react-native';
 export  function  loginAction(userName,passWord) {
     return dispatch => {
@@ -21,6 +22,7 @@ export  function  loginAction(userName,passWord) {
                console.log(data.message)
                console.log(data.data)
                dispatch(LoginDataSuccess(data.data,data.depData,data.zcflag));
+               DeviceEventEmitter.emit('EventName');
 
            }else{
                dispatch(LoginDataError(data.error));

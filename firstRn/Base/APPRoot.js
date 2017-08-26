@@ -15,6 +15,8 @@ import {
 import DongTai from '../Controller/DongTai/DongTai'
 import ShouYe from  '../Controller/ShouYe/ShouYe'
 import WoDe from  '../Controller/WoDe/WoDe'
+
+
 //图片
 const dongtainormal = require('../Image/Tabbar/圈子未选中.png')
 const dongtaiselect = require('../Image/Tabbar/圈子选中.png')
@@ -137,7 +139,8 @@ const styles = StyleSheet.create({
 const MyNav = StackNavigator({
     MyTab:{
         screen:MyTab
-    }
+    },
+
 
 
 });

@@ -16,13 +16,15 @@ import Prexfig from '../../Tool/Prexfig'
 import Config from '../../Tool/Config'
 import NetWorking from  '../../Tool/NetWorking'
 import Mccvcvv from 'react-native-md5'
+import {loginAction} from '../../Redux/Actions/LoginAction'
+import  { connect } from 'react-redux'
 
 
 const backImage = require('../../Image/Login/注册-.png')
 const touXiang = require('../../Image/Login/头像.png')
 const mima = require('../../Image/Login/锁.png')
 
-export default class LoginVC extends Component {
+ class LoginVC extends Component {
 
     // 构造
       constructor(props) {
@@ -34,23 +36,49 @@ export default class LoginVC extends Component {
         };
       }
 
+     componentDidMount() {
+
+     }
     _renderLoginPress=()=>{
 
-        var index = Math.floor((Math.random()*Config.api.baseLoginRootUrl.length))
-        var baseLoginRootUr =  Config.api.baseLoginRootUrl[index]
-        let userz_hex_md5v = Mccvcvv.hex_md5( Date.now() +"1866" );
-        let ma_hex_md5v = Mccvcvv.hex_md5( Date.now() +"123" );
-        let url = `${baseLoginRootUr}username=${userz_hex_md5v}&pwd=${ma_hex_md5v}`
-        console.log(url)
-        NetWorking.get(url,(data)=>{
-
-
-        },(error)=>{
-
-        });
+        this.props.loginAction('1866','202CB962AC59075B964B07152D234B70');
+        const  type  = this.props.loginReducer ? this.props.loginReducer.type : null;
+        console.log(type)
+        // var index = Math.floor((Math.random()*Config.api.baseLoginRootUrl.length))
+        // var baseLoginRootUr =  Config.api.baseLoginRootUrl[index]
+        // let userz_hex_md5v = Mccvcvv.hex_md5( Date.now() +"1866" );
+        // let ma_hex_md5v = Mccvcvv.hex_md5( Date.now() +'123' );
+        // let hex_md5v = Mccvcvv.hex_md5( Date.now() +'123' );
+        // console.log(">>>>hex_md5:", hex_md5v);
+        //
+        // let b64_md5v = Mccvcvv.b64_md5( Date.now() +'123' );
+        // console.log(">>>>b64_md5:", b64_md5v);
+        //
+        // let str_md5v = Mccvcvv.str_md5( Date.now() +'123' );
+        // console.log(">>>>str_md5:", str_md5v);
+        //
+        // let hex_hmac_md5v = Mccvcvv.hex_hmac_md5("my_key", Date.now() +'123' );
+        // console.log(">>>>hex_hmac_md5:", hex_hmac_md5v);
+        //
+        // let b64_hmac_md5v = Mccvcvv.b64_hmac_md5("my_key", Date.now() +'123' );
+        // console.log(">>>>b64_hmac_md5:", b64_hmac_md5v);
+        //
+        // let str_hmac_md5v = Mccvcvv.str_hmac_md5("my_key", Date.now() +'123' );
+        // console.log(">>>>str_hmac_md5:", str_hmac_md5v);
+        //
+        // let url = `${baseLoginRootUr}username=1866&pwd=202CB962AC59075B964B07152D234B70`
+        // console.log(url)
+        // NetWorking.get(url,(data)=>{
+        //
+        //
+        // },(error)=>{
+        //
+        // });
 
     }
     render() {
+
+
         return (
             <Image source={backImage}
                    style={styles.container}
@@ -143,3 +171,10 @@ const styles = StyleSheet.create({
 
     }
 });
+
+export default connect((state)=>{
+    const { loginAction } = state;
+    return {
+        loginAction
+    }
+},{ loginAction })(LoginVC)

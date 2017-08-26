@@ -24,7 +24,7 @@ const  Request = {
             .config(Request.GetConfig)
             .fetch('GET',url,Request.Header)
             .then((response) => {
-                // console.log(response);
+               //  console.log(response);
                 if (response.respInfo.status === 200){
                     return response.json();
                 }else {
@@ -32,13 +32,13 @@ const  Request = {
                 }
             })
             .then((request) => {
-                console.log(request);
-               // successCallBack(request.data);
+            // console.log(request);
+                successCallBack(request);
 
             })
             .catch((error)=>{
 
-                console.log(error);
+               // console.log(error);
                 failCallBack(error);
             })
 

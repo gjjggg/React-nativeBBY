@@ -13,12 +13,14 @@ import {
 } from 'react-native';
 
 import AppRoot from './Base/APPRoot'
+import ReduxRoot from './ReduxRoot'
 import Login from './Controller/Login/LoginVC'
 export default class firstRn extends Component {
   render() {
     return (
       // <AppRoot/>
-        <Login/>
+       // <Login/>
+        <ReduxRoot/>
     );
   }
 }

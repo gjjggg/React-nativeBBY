@@ -13,7 +13,7 @@ import {Provider} from 'react-redux'
 import ConfigureStore from  './Redux/Store/ConfigureStore'
 const  store = ConfigureStore()
 import Login from './Controller/Login/LoginVC'
-import AppRoot from './Base/APPRoot'
+
 export default  class  ReduxRoot extends  Component{
     // 构造
     constructor(props) {
@@ -23,30 +23,17 @@ export default  class  ReduxRoot extends  Component{
             islogin:'0'
         };
     }
-    componentDidMount() {
-        this.subscription = DeviceEventEmitter.addListener('EventName',this._tongzhiLogin())
-    }
 
-    componentWillUnmount() {
-        this.subscription.remove()
-    }
-    _tongzhiLogin=()=> {
-        console.log('s232qwasdsdfdfdddfdd')
-        this.setState({
-            islogin:'1'
-        })
-
-    }
      render(){
          return(
-             this.state.islogin === '0'?
+             // this.state.islogin === '0'?
              <Provider store={store}>
                  <Login />
              </Provider>
-             :
-             <Provider store={store}>
-                 <AppRoot/>
-             </Provider>
+             // :
+             // <Provider store={store}>
+             //     <AppRoot/>
+             // </Provider>
 
          )
      }

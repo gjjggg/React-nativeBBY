@@ -17,12 +17,12 @@ export  function  loginAction(userName,passWord) {
         let url = `${baseLoginRootUr}username=${userName}&pwd=${passWord}`
        // console.log(url)
         NetWorking.get(url,(data)=>{
-
+            console.log(data)
            if (data.message === '登陆成功'){
-               console.log(data.message)
-               console.log(data.data)
+
+               DeviceEventEmitter.emit('EventName','监听');
                dispatch(LoginDataSuccess(data.data,data.depData,data.zcflag));
-               DeviceEventEmitter.emit('EventName');
+
 
            }else{
                dispatch(LoginDataError(data.error));
@@ -35,7 +35,7 @@ export  function  loginAction(userName,passWord) {
 }
 export function  LoginDataSuccess(data,depData,zcflag) {
     return{
-        types:types.LOGIN_SUCCESS,
+        type:types.LOGIN_SUCCESS,
         data,
         depData,
         zcflag,
@@ -44,7 +44,7 @@ export function  LoginDataSuccess(data,depData,zcflag) {
 }
 export function LoginDataError(error) {
     return{
-        types:types.LOGIN_ERROR,
+        type:types.LOGIN_ERROR,
         error
     }
 }

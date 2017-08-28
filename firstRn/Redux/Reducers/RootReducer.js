@@ -6,5 +6,5 @@ import LoginReducer from './LoginReducer'
 
 export  default  RootReducer = combineReducers({
 
-   LoginReducer
+    LoginReducer
 })

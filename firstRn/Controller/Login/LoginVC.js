@@ -9,24 +9,25 @@ import {
     View,
     Image,
     TextInput,
-    TouchableOpacity,
-
+    TouchableOpacity
 } from 'react-native';
 
 import Prexfig from '../../Tool/Prexfig'
 import Config from '../../Tool/Config'
 import NetWorking from  '../../Tool/NetWorking'
 import Mccvcvv from 'react-native-md5'
-import {loginAction} from '../../Redux/Actions/LoginAction'
+
 import  { connect } from 'react-redux'
+import {loginAction} from '../../Redux/Actions/LoginAction'
 import AppRoot from '../../Base/APPRoot'
+
 
 
 const backImage = require('../../Image/Login/注册-.png')
 const touXiang = require('../../Image/Login/头像.png')
 const mima = require('../../Image/Login/锁.png')
 
- class LoginVC extends Component {
+class LoginVC extends Component {
 
     // 构造
       constructor(props) {
@@ -38,16 +39,16 @@ const mima = require('../../Image/Login/锁.png')
         };
       }
 
-
     _renderLoginPress=()=>{
 
         this.props.loginAction('1866','202CB962AC59075B964B07152D234B70');
 
     }
     render() {
-
-
+        const {typeee} = this.props.LoginReducer;
+        console.log(typeee);
         return (
+            typeee === '0'|| typeee == null?
             <Image source={backImage}
                    style={styles.container}
             >
@@ -75,6 +76,8 @@ const mima = require('../../Image/Login/锁.png')
                </Text>
 
             </Image>
+                :
+                <AppRoot />
         );
     }
 }
@@ -140,9 +143,9 @@ const styles = StyleSheet.create({
     }
 });
 
-export default connect((state)=>{
-    const { loginAction } = state;
+export default connect((state) => {
+    const {LoginReducer} = state;
     return {
-        loginAction
-    }
-},{ loginAction })(LoginVC)
+        LoginReducer,
+    };
+},{loginAction})(LoginVC)

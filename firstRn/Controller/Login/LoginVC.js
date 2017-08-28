@@ -46,7 +46,9 @@ class LoginVC extends Component {
     }
     render() {
         const {typeee} = this.props.LoginReducer;
+        const {weburl} = this.props.LoginReducer;
         console.log(typeee);
+        console.log(weburl);
         return (
             typeee === '0'|| typeee == null?
             <Image source={backImage}

@@ -12,6 +12,12 @@ const  initialState = {
     zcflag:null,
     error:null,
 
+    weburl:null,
+    xjid:null,
+    xjflag:null,
+    artid:null,
+
+
 };
 export  default  function oginReducer (state = initialState,action) {
     switch (action.type){
@@ -21,6 +27,7 @@ export  default  function oginReducer (state = initialState,action) {
                 data:action.data,
                 depData:action.depData,
                 zcflag:action.zcflag,
+                weburl:action.data.weburl,
 
             });
         case types.LOGIN_ERROR:

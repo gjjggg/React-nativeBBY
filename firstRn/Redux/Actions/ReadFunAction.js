@@ -7,43 +7,37 @@ import NetWorking from  '../../Tool/NetWorking'
 import {
     AsyncStorage,
 } from 'react-native';
-export  function  ReaderFunAction(userName,passWord) {
+//xjid=1866&xjflag=2&artid=68944&vdate=2018-04-12
+export  function  ReaderFunAction(weburl,xjid,xjflag,artid,vdate) {
     return dispatch => {
-        var index = Math.floor((Math.random()*Config.api.baseLoginRootUrl.length))
-        var baseLoginRootUr =  Config.api.baseLoginRootUrl[index]
 
-        // let url = `${baseLoginRootUr}username=1866&pwd=202CB962AC59075B964B07152D234B70`
-        let url = `${baseLoginRootUr}username=${userName}&pwd=${passWord}`
-        // console.log(url)
+        let url = `${weburl}:8000/app/app/read_fun.aspx?xjid=${xjid}&xjflag=${xjflag}&artid=${artid}&vdate=${vdate}`
+         console.log(url)
         NetWorking.get(url,(data)=>{
             console.log(data)
-            if (data.message === '登陆成功'){
-
-                DeviceEventEmitter.emit('EventName','监听');
-                dispatch(LoginDataSuccess(data.data,data.depData,data.zcflag));
-
+            if (data.Result === '1'){
+                console.log(data)
+                dispatch(LoginDataSuccess(data.info,data.Data));
 
             }else{
                 dispatch(LoginDataError(data.error));
             }
         },(error)=>{
-            //console.log('12332323131')
             dispatch(LoginDataError(error));
         });
     }
 }
-export function  LoginDataSuccess(data,depData,zcflag) {
+export function  LoginDataSuccess(info,Data) {
     return{
-        type:types.LOGIN_SUCCESS,
-        data,
-        depData,
-        zcflag,
+        type:types.READERFUN_SUCCESS,
+        info,
+        Data,
 
     }
 }
 export function LoginDataError(error) {
     return{
-        type:types.LOGIN_ERROR,
+        type:types.READERFUN_ERROR,
         error
     }
 }

@@ -9,35 +9,41 @@ import {
     AppRegistry,
     StyleSheet,
     Text,
-    View
+    View,
+    Image,
+    TouchableOpacity,
+    ScrollView
 } from 'react-native';
-
-export default class ShouYe extends Component {
+import  { connect } from 'react-redux'
+import MenuTopView from './View/MenuTopView'
+class ShouYe extends Component {
     render() {
-        const  type  = this.props.loginReducer ? this.props.loginReducer.data : null;
-        console.log(type)
+        const {Data} = this.props.ReadFunReducer;
+
+
         return (
+            Data == null||!Data?
             <View style={styles.container}>
-                <Text style={styles.welcome}>
-                    Welcome to React Native!
-                </Text>
-                <Text style={styles.instructions}>
-                    To get started, edit index.android.js
-                </Text>
-                <Text style={styles.instructions}>
-                    Double tap R on your keyboard to reload,{'\n'}
-                    Shake or press menu button for dev menu
-                </Text>
-            </View>
+
+            </View> :
+             <View style={styles.container}>
+                 <MenuTopView Data={Data} />
+              </View>
         );
     }
 }
 
+const tiaomuTop = StyleSheet.create({
+     topcontainer:{
+        backgroundColor:'#ff6ad3',
+        flexDirection:'row',
+
+     },
+
+});
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
     welcome: {
@@ -50,4 +56,14 @@ const styles = StyleSheet.create({
         color: '#333333',
         marginBottom: 5,
     },
+
 });
+
+export  default  connect((state) =>{
+    const {LoginReducer,ReadFunReducer} = state;
+    return {
+        LoginReducer,
+        ReadFunReducer
+    };
+
+},{})(ShouYe)

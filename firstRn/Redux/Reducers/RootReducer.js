@@ -3,8 +3,9 @@
  */
 import { combineReducers } from 'redux';
 import LoginReducer from './LoginReducer'
-
+import ReadFunReducer from './ReadFunReducer'
 export  default  RootReducer = combineReducers({
 
-    LoginReducer
+    LoginReducer,
+    ReadFunReducer
 })

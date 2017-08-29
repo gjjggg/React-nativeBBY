@@ -16,6 +16,7 @@ const  initialState = {
     xjid:null,
     xjflag:null,
     artid:null,
+    vdate:null,
 
 
 };
@@ -27,13 +28,17 @@ export  default  function oginReducer (state = initialState,action) {
                 data:action.data,
                 depData:action.depData,
                 zcflag:action.zcflag,
-                weburl:action.data.weburl,
+                weburl:action.data[0].weburl,
+                xjid:action.data[0].xjid,
+                xjflag:action.data[0].xjflag,
+                artid:action.data[0].artid,
+                vdate:action.data[0].vdate,
 
             });
         case types.LOGIN_ERROR:
             return Object.assign({},state,{
                 typeee:'0',
-                error:action.error
+                error:action.error,
             });
         default:
             return state;

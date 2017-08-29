@@ -19,6 +19,7 @@ import Mccvcvv from 'react-native-md5'
 
 import  { connect } from 'react-redux'
 import {loginAction} from '../../Redux/Actions/LoginAction'
+import {ReaderFunAction} from '../../Redux/Actions/ReadFunAction'
 import AppRoot from '../../Base/APPRoot'
 
 
@@ -42,13 +43,12 @@ class LoginVC extends Component {
     _renderLoginPress=()=>{
 
         this.props.loginAction('1866','202CB962AC59075B964B07152D234B70');
-
+        //http://182.92.27.163:8000/app/app/read_fun.aspx?xjid=1866&xjflag=2&artid=68944&vdate=2018-04-12
+        this.props.ReaderFunAction('http://182.92.27.163','1866','2','68944','2018-04-12');
     }
     render() {
         const {typeee} = this.props.LoginReducer;
-        const {weburl} = this.props.LoginReducer;
         console.log(typeee);
-        console.log(weburl);
         return (
             typeee === '0'|| typeee == null?
             <Image source={backImage}
@@ -146,8 +146,9 @@ const styles = StyleSheet.create({
 });
 
 export default connect((state) => {
-    const {LoginReducer} = state;
+    const {LoginReducer,ReadFunReducer} = state;
     return {
         LoginReducer,
+        ReadFunReducer
     };
-},{loginAction})(LoginVC)
+},{loginAction,ReaderFunAction})(LoginVC)

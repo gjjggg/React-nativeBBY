@@ -14,9 +14,23 @@ export  function  ReaderFunAction(weburl,xjid,xjflag,artid,vdate) {
         let url = `${weburl}:8000/app/app/read_fun.aspx?xjid=${xjid}&xjflag=${xjflag}&artid=${artid}&vdate=${vdate}`
          console.log(url)
         NetWorking.get(url,(data)=>{
-            console.log(data)
             if (data.Result === '1'){
+
+
+                let moreDic2 = {};
+                moreDic2.menuid =  '889';
+                moreDic2.menuname =  '更多服务';
+                moreDic2.flag =  '1';
+                moreDic2.rednum =  '0';
+
+                if (data.Data.length>8&&data.Data.length<=15) {
+                   data.Data[7] =  moreDic2
+                }else if(data.Data.length>15){
+                    data.Data[7] =  moreDic2
+                    data.Data[15] =  moreDic2
+                }
                 console.log(data)
+
                 dispatch(LoginDataSuccess(data.info,data.Data));
 
             }else{

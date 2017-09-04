@@ -18,89 +18,162 @@ export  default class MenuTopView extends Component {
         Data:React.PropTypes.object,
     }
 
+    // renderScrollPostionView(){
+    //
+    //     let  btnWidth  = (SCREEN_WIDTH-50)/4;
+    //     let  btnHeight = (SCREEN_WIDTH-50)/4+25;
+    //     let  margin = 10;
+    //
+    //     let allChild = [];
+    //     for( let i=0;i<this.props.Data.length;i++){
+    //
+    //         let row = (i-8*parseInt(i/8)) %4;
+    //         let loc = parseInt((i-8*parseInt(i/8))/4);
+    //         let appviewx=margin+(margin+btnWidth)*row;
+    //         let appviewy=margin+(margin+btnHeight)*loc;
+    //
+    //         // (appviewx, appviewy+ scrollViewHeight+5,btnWidth,btnHeight)
+    //         allChild.push(
+    //
+    //             <View style={{position:'absolute',left:appviewx+parseInt(i/8)*SCREEN_WIDTH,top:appviewy,width:btnWidth,height:btnHeight,backgroundColor: 'red'}}>
+    //
+    //
+    //             </View>
+    //
+    //
+    //         )
+    //
+    //     }
+    //     return allChild;
+    //
+    // }
+
+    renderSmallBanner=({pageee,allPage})=>{
+      let itemcount = 8;
+      if((pageee+1)*8>this.props.Data.length){
+          if (this.props.Data.length%8 !=0){
+              itemcount = this.props.Data.length%8;
+          }
+      }
+        let  btnWidth  = (SCREEN_WIDTH-20*5)/4;
+        let  btnHeight = (SCREEN_WIDTH-20*5)/4+20;
+        let  margin = 20;
+        let allChild = [];
+        for( let i=0;i<itemcount;i++){
+            let row = i %4;
+            let loc = parseInt(i/4);
+            let appviewx=margin+(margin+btnWidth)*row;
+            let appviewy=10+(10+btnHeight)*loc;
+            let urlImage = `../../../Image/Home/${this.props.Data[pageee*8+i].menuname}.png`;
+            var icon = this.props.Data[pageee*8+i].menuname
+            // console.log(urlImage)
+            allChild.push(
+
+                <TouchableOpacity key={i} style={[{position:'absolute',left:appviewx,top:appviewy,width:btnWidth,height:btnHeight},tiaomuTop.bigDiView]}>
+
+                    <Image style={tiaomuTop.imageCenterView} source={{uri:icon}}/>
+                    <Text style={tiaomuTop.textCenterView}
+                          numberOfLines ={1}>
+                        {this.props.Data[pageee*8+i].menuname}
+                    </Text>
+                </TouchableOpacity>
+            )
+        }
+        return allChild;
+
+    }
+
     renderBigBuJiu(){
         //向上取整,有小数就整数部分加1
-       // let page =   Math.ceil(this.props.Data.length/8)
+       let page =   Math.ceil(this.props.Data.length/8)
       //  console.log(page);
-        let  btnWidth  = (SCREEN_WIDTH-50)/4;
-        let  btnHeight = (SCREEN_WIDTH-50)/4+25;
-        let  margin = 10;
-
-         let allChild = [];
-         for( let i=0;i<this.props.Data.length;i++){
-
-             let row = (i-8*parseInt(i/8)) %4;
-             let loc = parseInt((i-8*parseInt(i/8))/4);
-             let appviewx=margin+(margin+btnWidth)*row;
-             let appviewy=margin+(margin+btnHeight)*loc;
-
-            // (appviewx, appviewy+ scrollViewHeight+5,btnWidth,btnHeight)
-             allChild.push(
-
-             <View style={{position:'absolute',left:appviewx+parseInt(i/8)*SCREEN_WIDTH,top:appviewy,width:btnWidth,height:btnHeight,backgroundColor: 'red'}}>
-
-
-             </View>
-
-
-             )
-
-         }
-         return allChild;
-
+        let allChild = [];
+        for (let i=0;i<page;i++){
+          backGroundstyle = i == 0 ? {backgroundColor:'#efab32'}: {backgroundColor:'#f4fa55'}
+            allChild.push(
+              <View key={i} style={styles.bigView}>
+                  {this.renderSmallBanner({pageee:i,page})}
+              </View>
+            )
+        }
+        return allChild
 
     }
 
     render() {
-//        let page =   Math.ceil(this.props.Data.length/8)
-
         return (
-             <ScrollView  style={tiaomuTop.topcontainer}
+         <View style={styles.menuTopViewStyle}>
+             <ScrollView  style={styles.topcontainer}
                           horizontal={true}
-                          scrollEnabled =  {true}
-                 //横向滚动条隐藏
                           showsHorizontalScrollIndicator={false}
-                          ioscontentOffset ={100,100}
+                          showsVerticalScrollIndicator={false}
                  //自动分页
                           pagingEnabled={true} >
                  {this.renderBigBuJiu()}
 
              </ScrollView>
-
+             <View style={styles.viewBottomView}/>
+         </View>
         );
     }
 }
 
 const tiaomuTop = StyleSheet.create({
-    topcontainer:{
-        flexDirection:'row',
-       width:SCREEN_WIDTH*3,
-        flexWrap:'wrap',
-        height:((SCREEN_WIDTH-50)/4+25)*2+40,
-        marginLeft:0,
-        marginTop:0,
-        backgroundColor:'#3affea'
-
+   bigDiView:{
+       justifyContent: 'center',
+       alignItems: 'center',
+   },
+    imageCenterView:{
+       marginTop:0,
+       marginLeft:15/5,
+       width:(SCREEN_WIDTH-20*5)/4-15,
+       height:(SCREEN_WIDTH-20*5)/4-15,
+       resizeMode:Image.resizeMode.contain
+    },
+    textCenterView:{
+       marginTop:7.5,
+       width:(SCREEN_WIDTH-20*5)/4,
+       textAlign:'center',
+        fontSize:13,
+        color:'#1c1b20'
 
     },
+
 
 });
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+    menuTopViewStyle:{
+        marginLeft:0,
+        marginTop:0,
+        width:SCREEN_WIDTH,
+        height:((SCREEN_WIDTH-20*5)/4+20)*2+30+0.5,
+        backgroundColor:'#ffffff',
     },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
+    topcontainer:{
+
+        marginLeft:0,
+        marginTop:0,
+        width:SCREEN_WIDTH,
+        height:((SCREEN_WIDTH-20*5)/4+20)*2+30,
+        backgroundColor:'#ffffff',
+
+
+
     },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
+    bigView: {
+        marginLeft: 0,
+        marginTop: 0,
+        height:((SCREEN_WIDTH-20*5)/4+20)*2+30,
+        width: SCREEN_WIDTH
     },
+    viewBottomView:{
+        marginLeft:0,
+        marginBottom:0.5,
+        width:SCREEN_WIDTH,
+        height:0.5,
+        backgroundColor:'#d8d8d8'
+
+    },
+
 
 });

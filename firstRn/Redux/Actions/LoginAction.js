@@ -13,7 +13,7 @@ export  function  loginAction(userName,passWord) {
         var index = Math.floor((Math.random()*Config.api.baseLoginRootUrl.length))
         var baseLoginRootUr =  Config.api.baseLoginRootUrl[index]
 
-       // let url = `${baseLoginRootUr}username=1866&pwd=202CB962AC59075B964B07152D234B70`
+       // let url = `${baseLoginRootUr}username=1866&pwd=81DC9BDB52D04DC20036DBD8313ED055`
         let url = `${baseLoginRootUr}username=${userName}&pwd=${passWord}`
        // console.log(url)
         NetWorking.get(url,(data)=>{

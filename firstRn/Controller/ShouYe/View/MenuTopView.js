@@ -16,39 +16,10 @@ import Config from '../../../Tool/Config'
 export  default class MenuTopView extends Component {
     static defaultProps = {
         Data:React.PropTypes.object,
+        //_renderTagView(index):React.PropTypes.object
     }
 
-    // renderScrollPostionView(){
-    //
-    //     let  btnWidth  = (SCREEN_WIDTH-50)/4;
-    //     let  btnHeight = (SCREEN_WIDTH-50)/4+25;
-    //     let  margin = 10;
-    //
-    //     let allChild = [];
-    //     for( let i=0;i<this.props.Data.length;i++){
-    //
-    //         let row = (i-8*parseInt(i/8)) %4;
-    //         let loc = parseInt((i-8*parseInt(i/8))/4);
-    //         let appviewx=margin+(margin+btnWidth)*row;
-    //         let appviewy=margin+(margin+btnHeight)*loc;
-    //
-    //         // (appviewx, appviewy+ scrollViewHeight+5,btnWidth,btnHeight)
-    //         allChild.push(
-    //
-    //             <View style={{position:'absolute',left:appviewx+parseInt(i/8)*SCREEN_WIDTH,top:appviewy,width:btnWidth,height:btnHeight,backgroundColor: 'red'}}>
-    //
-    //
-    //             </View>
-    //
-    //
-    //         )
-    //
-    //     }
-    //     return allChild;
-    //
-    // }
-
-    renderSmallBanner=({pageee,allPage})=>{
+    renderSmallBanner({pageee,allPage}){
       let itemcount = 8;
       if((pageee+1)*8>this.props.Data.length){
           if (this.props.Data.length%8 !=0){
@@ -69,7 +40,10 @@ export  default class MenuTopView extends Component {
             // console.log(urlImage)
             allChild.push(
 
-                <TouchableOpacity key={i} style={[{position:'absolute',left:appviewx,top:appviewy,width:btnWidth,height:btnHeight},tiaomuTop.bigDiView]}>
+                <TouchableOpacity key={i} style={[{position:'absolute',left:appviewx,top:appviewy,width:btnWidth,height:btnHeight},tiaomuTop.bigDiView]}
+                               //   onPress={this.props._renderTagView(pageee*8+i)}
+//()=>this._renderTagView(pageee*8+i)
+                >
 
                     <Image style={tiaomuTop.imageCenterView} source={{uri:icon}}/>
                     <Text style={tiaomuTop.textCenterView}
@@ -177,3 +151,41 @@ const styles = StyleSheet.create({
 
 
 });
+
+
+
+// renderScrollPostionView(){
+//
+//     let  btnWidth  = (SCREEN_WIDTH-50)/4;
+//     let  btnHeight = (SCREEN_WIDTH-50)/4+25;
+//     let  margin = 10;
+//
+//     let allChild = [];
+//     for( let i=0;i<this.props.Data.length;i++){
+//
+//         let row = (i-8*parseInt(i/8)) %4;
+//         let loc = parseInt((i-8*parseInt(i/8))/4);
+//         let appviewx=margin+(margin+btnWidth)*row;
+//         let appviewy=margin+(margin+btnHeight)*loc;
+//
+//         // (appviewx, appviewy+ scrollViewHeight+5,btnWidth,btnHeight)
+//         allChild.push(
+//
+//             <View style={{position:'absolute',left:appviewx+parseInt(i/8)*SCREEN_WIDTH,top:appviewy,width:btnWidth,height:btnHeight,backgroundColor: 'red'}}>
+//
+//
+//             </View>
+//
+//
+//         )
+//
+//     }
+//     return allChild;
+//
+// }
+//
+// _renderTagView(index){
+//
+//   console.log(index)
+//
+// }

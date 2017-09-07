@@ -17,6 +17,7 @@ export  default class MenuTopView extends Component {
     static defaultProps = {
         Data:React.PropTypes.object,
         //_renderTagView(index):React.PropTypes.object
+        //renderTagView:React.PropTypes.object,
     }
 
     renderSmallBanner({pageee,allPage}){
@@ -41,8 +42,9 @@ export  default class MenuTopView extends Component {
             allChild.push(
 
                 <TouchableOpacity key={i} style={[{position:'absolute',left:appviewx,top:appviewy,width:btnWidth,height:btnHeight},tiaomuTop.bigDiView]}
-                               //   onPress={this.props._renderTagView(pageee*8+i)}
-//()=>this._renderTagView(pageee*8+i)
+                              onPress={()=>this.props.renderTagView(pageee*8+i)}
+                               index ={pageee*8+i}
+                                 // onPress={ ()=>this._renderTagView(pageee*8+i)}
                 >
 
                     <Image style={tiaomuTop.imageCenterView} source={{uri:icon}}/>

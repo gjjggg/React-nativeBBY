@@ -6,24 +6,17 @@ import {
     AppRegistry,
     StyleSheet,
     Text,
-    View
+    View,
+    ActionSheetIOS,
+    Image,
 } from 'react-native';
-
 export default class DongTai extends Component {
+
+
     render() {
         return (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>
-                    Welcome to React Native!
-                </Text>
-                <Text style={styles.instructions}>
-                    To get started, edit index.android.js
-                </Text>
-                <Text style={styles.instructions}>
-                    Double tap R on your keyboard to reload,{'\n'}
-                    Shake or press menu button for dev menu
-                </Text>
-            </View>
+            <PhotoBrowser style={styles.container}
+                />
         );
     }
 }
@@ -31,18 +24,23 @@ export default class DongTai extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor:'white'
     },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
+    list: {
+        flex: 1,
+        paddingTop: 54,
+        paddingLeft: 16,
     },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
+    row: {
+        flex: 1,
+        padding: 8,
+        borderBottomColor: 'rgba(0, 0, 0, 0.1)',
+        borderBottomWidth: 1,
+    },
+    rowTitle: {
+        fontSize: 14,
+    },
+    rowDescription: {
+        fontSize: 12,
     },
 });

@@ -41,45 +41,49 @@ class LoginVC extends Component {
       }
 
     _renderLoginPress=()=>{
-
+          //202CB962AC59075B964B07152D234B70
         this.props.loginAction('1866','202CB962AC59075B964B07152D234B70');
+
         //http://182.92.27.163:8000/app/app/read_fun.aspx?xjid=1866&xjflag=2&artid=68944&vdate=2018-04-12
-        this.props.ReaderFunAction('http://182.92.27.163','1866','2','68944','2018-04-12');
+       this.props.ReaderFunAction('http://182.92.27.163','1866','2','68944','2018-04-12');
     }
     render() {
-        const {typeee} = this.props.LoginReducer;
+       const {typeee} = this.props.LoginReducer;
+
         console.log(typeee);
         return (
-            typeee === '0'|| typeee == null?
-            <Image source={backImage}
-                   style={styles.container}
-            >
-              <View style={styles.userNameView}>
-                  <Image source={touXiang}
-                         style={styles.userNameImage}
-                  />
-                  <TextInput style={styles.userNameText}/>
-              </View>
+           typeee == '1' ?
 
-              <View style={styles.userMiNaView}>
-                  <Image  source={mima}
-                          style={styles.userNameImage}/>
-                  <TextInput style={styles.userNameText}/>
+                <AppRoot />
+                :
 
-              </View>
-              <TouchableOpacity style={styles.loginBtn} onPress={this._renderLoginPress}>
-               <Text style={{color:'#ffffff'}}>
-                  登录
-               </Text>
-              </TouchableOpacity>
+                <Image source={backImage}
+                       style={styles.container}
+                >
+                <View style={styles.userNameView}>
+                    <Image source={touXiang}
+                           style={styles.userNameImage}
+                    />
+                    <TextInput style={styles.userNameText}/>
+                </View>
 
-               <Text style={styles.yonghuStyle} >
-                   用户协议
-               </Text>
+                <View style={styles.userMiNaView}>
+                    <Image  source={mima}
+                            style={styles.userNameImage}/>
+                    <TextInput style={styles.userNameText}/>
+
+                </View>
+                <TouchableOpacity style={styles.loginBtn} onPress={this._renderLoginPress}>
+                    <Text style={{color:'#ffffff'}}>
+                        登录
+                    </Text>
+                </TouchableOpacity>
+
+                <Text style={styles.yonghuStyle} >
+                    用户协议
+                </Text>
 
             </Image>
-                :
-                <AppRoot />
         );
     }
 }

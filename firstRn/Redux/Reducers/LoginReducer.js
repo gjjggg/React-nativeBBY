@@ -21,6 +21,8 @@ const  initialState = {
 
 };
 export  default  function oginReducer (state = initialState,action) {
+    console.log(state)
+    console.log(action)
     switch (action.type){
         case  types.LOGIN_SUCCESS:
             return Object.assign({},state,{

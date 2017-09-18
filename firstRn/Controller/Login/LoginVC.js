@@ -52,9 +52,10 @@ class LoginVC extends Component {
 
         console.log(typeee);
         return (
-           typeee == '1' ?
+           typeee === '1' ?
 
                 <AppRoot />
+
                 :
 
                 <Image source={backImage}

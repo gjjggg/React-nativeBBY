@@ -36,6 +36,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* firstRnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* firstRnTests.m */; };
 		34B1294404DF487498B41353 /* libimageCropPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8A4FA7725243299060A85D /* libimageCropPicker.a */; };
 		3D3D7E1BD3C04F64AA695409 /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B135D8BFFD43B283915236 /* libRNFetchBlob.a */; };
+		49B5EC521F6B6179004E0562 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		6ED4BFD4302949E3AA94BACF /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA78ABDAB5AF4DB8B4A86D85 /* libRNImagePicker.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -1099,6 +1100,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49B5EC521F6B6179004E0562 /* main.m in Sources */,
 				00E356F31AD99517003FC87E /* firstRnTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

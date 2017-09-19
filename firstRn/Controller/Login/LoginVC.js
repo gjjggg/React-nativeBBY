@@ -54,6 +54,7 @@ class LoginVC extends Component {
         return (
            typeee === '1' ?
 
+
                 <AppRoot />
 
                 :

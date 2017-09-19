@@ -33,6 +33,7 @@ export default class SectionCell extends Component {
                <Text style={styles.bottomTexStyle} numberOfLines={1}>
                    {this.props.Data.date}
                </Text>
+
            </TouchableOpacity>
         );
     }

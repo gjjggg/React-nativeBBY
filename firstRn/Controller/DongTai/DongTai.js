@@ -13,10 +13,11 @@ import {
 } from 'react-native';
 import  { connect } from 'react-redux'
 import NetWorking from '../../Tool/NetWorking'
-
+import DongTaiCell from './View/DongTaiCell'
+import DongTaiTop from  './View/DongTaiTop'
 class DongTai extends Component {
     componentDidMount() {
-       this._renderDownloadNetWorking()
+    this._renderDownloadNetWorking()
     }
     // 构造
       constructor(props) {
@@ -38,6 +39,7 @@ class DongTai extends Component {
         NetWorking.get(homeCommentUrl,(data)=>{
             console.log(data)
             if(data.Result === '1'){
+                console.log(data.data)
                 this.setState({
                     data: data.data,
                 });
@@ -51,12 +53,21 @@ class DongTai extends Component {
         });
 
     }
-    //单元格
-    _renturnItemComponent=()=>{
+   //表头
+    _renturnlistheader(){
         return(
-            <View style={{width:SCREEN_WIDTH,height:20,padding:10,backgroundColor:'red'}}>
+            // <View style={{width:SCREEN_WIDTH,height:20,padding:10,backgroundColor:'red'}}>
+            //
+            // </View>
+            <DongTaiTop />
+        )
+    }
 
-            </View>
+    //单元格
+    _renturnItemComponent(){
+        return(
+
+            < DongTaiCell />
         )
     }
     render() {
@@ -64,14 +75,15 @@ class DongTai extends Component {
           <SectionList
               style={styles.container}
               //滑动默认false为滑动
-              stickySectionHeadersEnabled ={true}
-              ItemSeparatorComponent={()=><Text style={{width:SCREEN_WIDTH,height:0.5,backgroundColor:'#d8d8d8'}}/>}
+              stickySectionHeadersEnabled ={false}
+              ItemSeparatorComponent={()=><Text style={{marginTop:10,width:SCREEN_WIDTH,height:0.5,backgroundColor:'#d8d8d8'}}/>}
               // ListHeaderComponent={()=>this._renturnlistheader(Data)}
-              renderSectionHeader={()=>this._renturnlistheader(Data)}
+              renderSectionHeader={()=>this._renturnlistheader()}
               renderItem={this._renturnItemComponent}
               // keyExtractor={(item, index)=>`key-${item.id}`}
               sections={[{key: 's1', data:this.state.data}]}
           />
+          //  <View style={styles.container}/>
         );
     }
 }

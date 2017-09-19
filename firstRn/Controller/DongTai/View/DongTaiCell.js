@@ -21,8 +21,33 @@ export default class DongTaiCell extends Component {
     _renderAllImageView=()=>{
 
         const  allData = [];
+        let  btnWidth;
+        let  btnHeight;
+        let  margin;
+        let count;
+        let littleCount;
+        margin = 10;
+        count = 4;
+        if (count<3){
+           littleCount = count;
+        }else {
+            littleCount = 3
+        }
+        btnWidth = (SCREEN_WIDTH-10*(littleCount+1))/littleCount;
+        btnHeight= btnWidth*0.65;
+        for(let i=0;i<count;i++){
+            let row = i %littleCount;
+            let loc = parseInt(i/littleCount);
+            let appviewx=margin+(margin+btnWidth)*row;
+            let appviewy=margin+(margin+btnHeight)*loc;
+            allData.push(
+                <Image
+                  style={{marginTop:5,marginLeft: 10,width:btnWidth,height:btnHeight,backgroundColor:'#1c2c44'}} source={{uri:'家园共育'}}
+                />
+            )
+        }
 
-
+       return allData;
 
 
 
@@ -34,10 +59,10 @@ export default class DongTaiCell extends Component {
                 <View style={styles.topView}>
                     <Image style={styles.imageTopView}/>
                     <Text style={styles.titleTextTop}>
-
+                        刘全女女女女女
                     </Text>
                     <Text style={styles.dateTitle}>
-
+                      2017-09-08
                     </Text>
                 </View>
                 <Text style={styles.muleTitle}>
@@ -55,46 +80,52 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: 'red',
+        backgroundColor: 'white',
     },
     topView: {
        flexDirection:'row',
        alignItems:'center',
        width:SCREEN_WIDTH,
-       height: 80,
-       backgroundColor:'#ac670a'
+
+       //backgroundColor:'#ac670a'
 
     },
     imageTopView: {
-        marginTop:20,
-       marginLeft:20,
-       width:50,
-       height:50,
-       borderRadius:50/2,
+        marginTop:6,
+       marginLeft:12,
+       width:40,
+       height:40,
+       borderRadius:40/2,
        backgroundColor:'#1c204b'
     },
     titleTextTop:{
-        marginTop:20,
-        marginLeft:8,
-        fontSize:18,
+        position:'absolute',
+        top:12,
+        left:60,
+        fontSize:13,
         color:'#1c1b20',
     },
     dateTitle:{
       position:'absolute',
-      bottom:10,
-      left:78,
-      color:'#1c1b20',
+      top: 28,
+      left:60,
+      fontSize:12,
+      color:'#858585',
 
     },
     muleTitle:{
-       marginTop:8,
-       marginLeft:8,
-       width:SCREEN_WIDTH-16,
-       backgroundColor:'#2bcc4a',
+       marginTop:6,
+       marginLeft:12,
+       width:SCREEN_WIDTH-24,
+        fontSize:13,
+       //backgroundColor:'#2bcc4a',
     },
     allImageView:{
-     backgroundColor:'#2c4b79',
+     //backgroundColor:'#2c4b79',
      width:SCREEN_WIDTH,
+     flexDirection:'row',
+     flexWrap:'wrap'
+
 
     }
 });

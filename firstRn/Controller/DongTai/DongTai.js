@@ -64,10 +64,10 @@ class DongTai extends Component {
     }
 
     //单元格
-    _renturnItemComponent(){
+    _renturnItemComponent({item}){
         return(
 
-            < DongTaiCell />
+            < DongTaiCell  smallData = {item}/>
         )
     }
     render() {
@@ -90,8 +90,10 @@ class DongTai extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor:'white'
+       // flex: 1,
+        backgroundColor:'white',
+        // width:SCREEN_WIDTH,
+        // height:SCREEN_HEIGHT-64-44
     },
     list: {
         flex: 1,

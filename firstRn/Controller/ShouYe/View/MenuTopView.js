@@ -31,7 +31,7 @@ export  default class MenuTopView extends Component {
         let  btnHeight = (SCREEN_WIDTH-20*5)/4+20;
         let  margin = 20;
         let allChild = [];
-        for( let i=0;i<itemcount;i++){
+        for(let i=0;i<itemcount;i++){
             let row = i %4;
             let loc = parseInt(i/4);
             let appviewx=margin+(margin+btnWidth)*row;

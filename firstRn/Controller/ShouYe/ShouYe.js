@@ -168,6 +168,9 @@ class ShouYe extends Component {
 
         const dic = data[index]
         console.log(dic)
+        // if(dic.menuid === '889'){
+        //
+        // }
 
     }
 
@@ -216,7 +219,7 @@ class ShouYe extends Component {
     _renturnlistheader = (Data) => {
         return (
             <MenuTopView Data={Data}
-                         renderTagView={(index)=>this._renderTopView({index,data:Data})}
+                       //  renderTagView={(index)=>this._renderTopView({index,data:Data})}
 
             />
         )

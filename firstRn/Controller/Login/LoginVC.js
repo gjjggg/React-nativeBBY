@@ -16,7 +16,7 @@ import Prexfig from '../../Tool/Prexfig'
 import Config from '../../Tool/Config'
 import NetWorking from  '../../Tool/NetWorking'
 import Mccvcvv from 'react-native-md5'
-
+import  DeviceInfo from  'react-native-device-info'
 import  { connect } from 'react-redux'
 import {loginAction} from '../../Redux/Actions/LoginAction'
 import {ReaderFunAction} from '../../Redux/Actions/ReadFunAction'
@@ -49,7 +49,9 @@ class LoginVC extends Component {
     }
     render() {
        const {typeee} = this.props.LoginReducer;
-
+       console.log(DeviceInfo.getDeviceId())
+        console.log(DeviceInfo.getModel())
+        console.log((DeviceInfo.getModel()=== 'iPhone X'?88:64))
         console.log(typeee);
         return (
            typeee === '1' ?
@@ -59,7 +61,8 @@ class LoginVC extends Component {
 
                 :
 
-                <Image source={backImage}
+                <Image //source={backImage}
+                      source={{uri:'ereree'}}
                        style={styles.container}
                 >
                 <View style={styles.userNameView}>
@@ -95,10 +98,10 @@ const styles = StyleSheet.create({
         flex: 1,
         //justifyContent: 'center',
          alignItems: 'center',
-        //backgroundColor: '#F5FCFF',
+        backgroundColor: '#1ecd34',
         resizeMode :Image.resizeMode.contain,
         width:SCREEN_WIDTH,
-        height:SCREEN_HEIGHT,
+        // height:SCREEN_HEIGHT,
     },
     userNameView: {
         width:586/750*SCREEN_WIDTH,

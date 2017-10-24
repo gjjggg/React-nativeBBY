@@ -18,7 +18,23 @@ export  default class MenuTopView extends Component {
         Data:React.PropTypes.object,
         //_renderTagView(index):React.PropTypes.object
         //renderTagView:React.PropTypes.object,
+
     }
+   _renderOnPressPageTag({inded}){
+        let dic = this.props.Data[inded]
+        console.log(dic)
+        if (dic.menuid === '889'){
+
+
+        }else{
+
+            //{this.props.renderTagView(inded)}
+        }
+       // {
+       //     this.props.renderTagView(inded)
+       // }
+       //()=>this.props.renderTagView(pageee*8+i)
+   }
 
     renderSmallBanner({pageee,allPage}){
       let itemcount = 8;
@@ -42,8 +58,9 @@ export  default class MenuTopView extends Component {
             allChild.push(
 
                 <TouchableOpacity key={i} style={[{position:'absolute',left:appviewx,top:appviewy,width:btnWidth,height:btnHeight},tiaomuTop.bigDiView]}
-                              onPress={()=>this.props.renderTagView(pageee*8+i)}
-                               index ={pageee*8+i}
+                                  index ={pageee*8+i}
+                                  onPress={()=>this._renderOnPressPageTag({inded:pageee*8+i})}
+
                                  // onPress={ ()=>this._renderTagView(pageee*8+i)}
                 >
 

@@ -10,6 +10,7 @@
 		"node-forge": "^0.7.1",
 		"react": "16.0.0-alpha.12",
 		"react-native": "0.47.1",
+		"react-native-device-info": "^0.12.1",
 		"react-native-encryption-library": "^1.0.9",
 		"react-native-fetch-blob": "^0.10.8",
 		"react-native-image-crop-picker": "^0.16.0",

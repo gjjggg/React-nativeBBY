@@ -261,7 +261,7 @@ const tiaomuTop = StyleSheet.create({
 const styles = StyleSheet.create({
     container: {
       //  flex: 1,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#f4f4f4',
         width:SCREEN_WIDTH,
         height:SCREEN_HEIGHT
     },

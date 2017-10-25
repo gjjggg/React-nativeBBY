@@ -10,6 +10,7 @@ import {
     Image,
     TouchableOpacity
 } from 'react-native';
+import  DeviceInfo from  'react-native-device-info'
 
 export default class HomeNavgation extends Component {
     static defaultProps(){
@@ -22,8 +23,8 @@ export default class HomeNavgation extends Component {
     render() {
         console.log('2222222'+this.props.touxiangImage)
         return (
-           <Image source={require('../../../Image/NavBar/head.png')} style={styles.container}>
-              <View style={styles.smallNav}>
+           <Image source={require('../../../Image/NavBar/head.png')} style={[styles.container,{height:(DeviceInfo.getModel()=== 'iPhone X'?88:64)}]}>
+              <View style={[styles.smallNav,{marginTop:(DeviceInfo.getModel()=== 'iPhone X'?44:20)}]}>
                <TouchableOpacity style={styles.onPressStyle} onPress={this.props.onPressImage}>
                    <Image style={styles.touxiangStyle} source={{uri:this.props.touxiangImage}}/>
                </TouchableOpacity>

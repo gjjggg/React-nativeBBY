@@ -91,7 +91,7 @@ class DongTai extends Component {
 const styles = StyleSheet.create({
     container: {
        // flex: 1,
-        backgroundColor:'white',
+        backgroundColor:'#f4f4f4',
         // width:SCREEN_WIDTH,
         // height:SCREEN_HEIGHT-64-44
     },

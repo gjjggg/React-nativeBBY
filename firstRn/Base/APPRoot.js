@@ -31,6 +31,7 @@ const MyTab = TabNavigator ({
      DongTai:{
          screen:DongTai,
          navigationOptions:{
+             headerTitle:'详情',
              tabBarLabel:(({tintColor,focused})=>{
                  return(
                      <Text

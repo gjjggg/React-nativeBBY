@@ -37,6 +37,7 @@
 		34B1294404DF487498B41353 /* libimageCropPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8A4FA7725243299060A85D /* libimageCropPicker.a */; };
 		3D3D7E1BD3C04F64AA695409 /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B135D8BFFD43B283915236 /* libRNFetchBlob.a */; };
 		45B4628361E04E28B79C609F /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B47F61F2961D465B8D4A502D /* libRCTVideo.a */; };
+		491EA4041FA70EDE000D4AA2 /* QBImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 491EA4051FA70EDE000D4AA2 /* QBImagePicker.framework */; };
 		49B5EC521F6B6179004E0562 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		49E259EB1F9F2CBB00AC28FA /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E259E61F9F2C8E00AC28FA /* libRNDeviceInfo.a */; };
 		49F51D6E1F7102F90066607F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F51D6D1F7102F80066607F /* AVFoundation.framework */; };
@@ -353,6 +354,7 @@
 		2D02E4901E0B4A5D006451C7 /* firstRn-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "firstRn-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44907B751DFA4D9D92883912 /* imageCropPicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = imageCropPicker.xcodeproj; path = "../node_modules/react-native-image-crop-picker/ios/imageCropPicker.xcodeproj"; sourceTree = "<group>"; };
 		4612C87B95754EDBA4D83BE3 /* EncryptionDemo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = EncryptionDemo.xcodeproj; path = "../node_modules/react-native-encryption-library/EncryptionDemo.xcodeproj"; sourceTree = "<group>"; };
+		491EA4051FA70EDE000D4AA2 /* QBImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QBImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E259BE1F9F2C8C00AC28FA /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNDeviceInfo.xcodeproj; path = "../node_modules/react-native-device-info/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; };
 		49F51D6D1F7102F80066607F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				491EA4041FA70EDE000D4AA2 /* QBImagePicker.framework in Frameworks */,
 				49E259EB1F9F2CBB00AC28FA /* libRNDeviceInfo.a in Frameworks */,
 				49F51D6E1F7102F90066607F /* AVFoundation.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -594,6 +597,7 @@
 		49F51D6C1F7102F70066607F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				491EA4051FA70EDE000D4AA2 /* QBImagePicker.framework */,
 				49F51D6D1F7102F80066607F /* AVFoundation.framework */,
 			);
 			name = Frameworks;

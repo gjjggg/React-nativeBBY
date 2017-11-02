@@ -78,15 +78,7 @@ const MyTab = TabNavigator ({
     WoDe:{
         screen:WoDe,
         navigationOptions:{
-            tabBarLabel:(({tintColor,focused})=>{
-                return(
-                    <Text
-                         style={!focused?styles.containernormal:styles.containerselect}
-                    >
-                        我的
-                    </Text>
-                )
-            }),
+
             tabBarIcon:(({tintColor,focused})=>{
                 return(
                     <Image
@@ -94,7 +86,17 @@ const MyTab = TabNavigator ({
                         style={styles.tabbarImage}
                     />
                 )
+            }),
+            tabBarLabel:(({tintColor,focused})=>{
+                return(
+                    <Text
+                        style={!focused?styles.containernormal:styles.containerselect}
+                    >
+                        我的
+                    </Text>
+                )
             })
+
 
         }
     }
@@ -120,19 +122,22 @@ const styles = StyleSheet.create({
     containerselect: {
         color:'#00c8ff',
         textAlign:'center',
-        marginBottom:3,
+        marginBottom:5,
         fontSize:12,
+       // marginTop:0,
     },
     containernormal: {
         color:'#bcbcbc',
         textAlign:'center',
-        marginBottom:3,
+         marginBottom:5,
         fontSize:12,
+        //marginTop:0,
     },
     tabbarImage:{
         height:20,
         width:20,
-        marginTop:0,
+        //marginTop:5,
+        marginBottom:30,
     }
 });
 

@@ -43,7 +43,7 @@ var options = {
 };
 
 class ShouYe extends Component {
-   static  defaultProps = {
+   static  defaultProps(){
 
    }
    // 构造

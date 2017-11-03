@@ -164,10 +164,10 @@ class ShouYe extends Component {
         )
     }
     //菜单按钮的点击事件
-    _renderTopView({index,data}){
+    press(index){
 
-        const dic = data[index]
-        console.log(dic)
+       // const dic = data[index]
+        console.log(index)
         // if(dic.menuid === '889'){
         //
         // }
@@ -219,8 +219,8 @@ class ShouYe extends Component {
     _renturnlistheader = (Data) => {
         return (
             <MenuTopView Data={Data}
-                       //  renderTagView={(index)=>this._renderTopView({index,data:Data})}
 
+                         renderTagView = {(i)=>this.press(i)}
             />
         )
     }

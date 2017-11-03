@@ -16,19 +16,43 @@ import Config from '../../../Tool/Config'
 export  default class MenuTopView extends Component {
     static defaultProps = {
         Data:React.PropTypes.object,
-        //_renderTagView(index):React.PropTypes.object
-        //renderTagView:React.PropTypes.object,
+       //_renderTagView(index):React.PropTypes.object,
+        renderTagView:React.PropTypes.object,
+        duration : 1000
 
     }
+    // 构造
+      constructor(props) {
+        super(props);
+        // 初始状态
+        this.state = {
+            currpage:0
+        };
+      }
    _renderOnPressPageTag({inded}){
         let dic = this.props.Data[inded]
-        console.log(dic)
+        let dataCount = this.props.Data.length
+        let indedLength = inded+1;
         if (dic.menuid === '889'){
+          if (indedLength+1<dataCount){
+              var scrollView = this.refs.scrollview
+              //更新状态ji
+              let gaiCurrent =    parseInt(indedLength/8)
+              console.log(gaiCurrent)
+              this.setState({
+                  currentPage:gaiCurrent
+              })
+              //让图片滚动起来
+              var offsexX=gaiCurrent*SCREEN_WIDTH;
+              console.log(offsexX)
+              scrollView.scrollResponderScrollTo({x:offsexX, y:0, animated:true})
+              // scrollView.scrollTo({x:offsexX, y: 0, animated: true})
+          }
 
 
         }else{
 
-            //{this.props.renderTagView(inded)}
+            {this.props.renderTagView(inded)}
         }
        // {
        //     this.props.renderTagView(inded)
@@ -61,7 +85,7 @@ export  default class MenuTopView extends Component {
                                   index ={pageee*8+i}
                                   onPress={()=>this._renderOnPressPageTag({inded:pageee*8+i})}
 
-                                 // onPress={ ()=>this._renderTagView(pageee*8+i)}
+
                 >
 
                     <Image style={tiaomuTop.imageCenterView} source={{uri:icon}}/>
@@ -96,7 +120,8 @@ export  default class MenuTopView extends Component {
     render() {
         return (
          <View style={styles.menuTopViewStyle}>
-             <ScrollView  style={styles.topcontainer}
+             <ScrollView  ref="scrollview"
+                          style={styles.topcontainer}
                           horizontal={true}
                           showsHorizontalScrollIndicator={false}
                           showsVerticalScrollIndicator={false}
